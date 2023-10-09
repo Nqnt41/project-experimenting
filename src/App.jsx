@@ -6,17 +6,18 @@ import Credit from './components/Credit';
 
 function App({ data }) {
   // TODO: Update the following two variables to use the useState() hook
-  const filterText = useState('');
-  const selectedBuilding = useState(0);
+  const [filterText, setFilterText] = useState('');
+  const [selectedBuilding, setSelectedBuilding] = useState(0);
 
   // Set the state of the filter text to the value being passed in
   function filterUpdate(value) {
-    filterText(value)
+    setFilterText(value)
   }
 
   // Set the state of the selected building to the id being passed in
   function selectedUpdate(id) {
-    selectedBuilding(id)
+    setSelectedBuilding(id)
+    console.log('penis')
   }
 
   return (
@@ -26,7 +27,7 @@ function App({ data }) {
       </div>
       {/* TODO: Edit Search component to include necessary props */}
       <Search
-        data={data} filterUpdate={filterUpdate}
+        data={data} filterText={filterText} filterUpdate={filterUpdate}
       />
       <main>
         <div className="row">
@@ -43,7 +44,7 @@ function App({ data }) {
               <tbody>
                 {/* TODO: Edit BuildingList component to include necessary props */}
                 <BuildingList
-                  data={data} filter={selectedBuilding}
+                  data={data} filterText={filterText} selectedUpdate={selectedUpdate}
                 />
               </tbody>
               </table>
