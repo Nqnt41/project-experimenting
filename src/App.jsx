@@ -43,7 +43,7 @@ function App({ data }) {
               <tbody>
                 {/* TODO: Edit BuildingList component to include necessary props */}
                 <BuildingList
-                  data={data} filter={filterText}
+                  data={data} filter={selectedBuilding}
                 />
               </tbody>
               </table>

@@ -1,6 +1,7 @@
 import {useRef} from "react";
 
 function Search({ data, filterUpdate }) {
+
   // TODO: Update the input variable to use the useRef() hook
   //  Uses it, now what?
   const input = useRef(null);
@@ -18,6 +19,7 @@ function Search({ data, filterUpdate }) {
       <input 
         type="text"
         placeholder="Type to Filter"
+        //onChange={alert("PENIS")}
       />
     </form>
   );
