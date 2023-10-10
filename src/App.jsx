@@ -16,8 +16,9 @@ function App({ data }) {
 
   // Set the state of the selected building to the id being passed in
   function selectedUpdate(id) {
+    console.log(id)
     setSelectedBuilding(id)
-    console.log('penis')
+    console.log("yo " + selectedBuilding)
   }
 
   return (
@@ -51,7 +52,9 @@ function App({ data }) {
             </div>
           </div>
           <div className="column2">
-            <ViewBuilding />
+            <ViewBuilding
+              data={data} selectedBuilding={selectedBuilding}
+            />
           </div>
         </div>
         <Credit />
