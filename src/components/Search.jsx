@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-function Search({ data, filterText, filterUpdate }) {
+function Search({ filterText, filterUpdate }) {
 
   // TODO: Update the input variable to use the useRef() hook
   //  Uses it, now what?

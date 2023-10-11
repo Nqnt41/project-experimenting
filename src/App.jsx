@@ -2,12 +2,14 @@ import {useState} from 'react';
 import Search from './components/Search';
 import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
+import AddBuilding from './components/AddBuilding';
 import Credit from './components/Credit';
 
 function App({ data }) {
   // TODO: Update the following two variables to use the useState() hook
   const [filterText, setFilterText] = useState('');
-  const [selectedBuilding, setSelectedBuilding] = useState(0);
+  const [selectedBuilding, setSelectedBuilding] = useState(-1);
+  const [filteredData, setFilteredData] = useState(data);
 
   // Set the state of the filter text to the value being passed in
   function filterUpdate(value) {
@@ -16,9 +18,14 @@ function App({ data }) {
 
   // Set the state of the selected building to the id being passed in
   function selectedUpdate(id) {
-    console.log(id)
-    setSelectedBuilding(id)
-    console.log("yo " + selectedBuilding)
+    setSelectedBuilding(id - 1)
+    console.log("App function id: " + (id - 1))
+  }
+
+  // TODO: Placeholder below
+  function dataUpdate(changeData) {
+    console.log("sizes: " + filteredData.size + " " + changeData.size)
+    setFilteredData(changeData)
   }
 
   return (
@@ -28,7 +35,7 @@ function App({ data }) {
       </div>
       {/* TODO: Edit Search component to include necessary props */}
       <Search
-        data={data} filterText={filterText} filterUpdate={filterUpdate}
+        filterText={filterText} filterUpdate={filterUpdate}
       />
       <main>
         <div className="row">
@@ -45,7 +52,7 @@ function App({ data }) {
               <tbody>
                 {/* TODO: Edit BuildingList component to include necessary props */}
                 <BuildingList
-                  data={data} filterText={filterText} selectedUpdate={selectedUpdate}
+                  filteredData={filteredData} filterText={filterText} selectedUpdate={selectedUpdate}
                 />
               </tbody>
               </table>
@@ -53,7 +60,10 @@ function App({ data }) {
           </div>
           <div className="column2">
             <ViewBuilding
-              data={data} selectedBuilding={selectedBuilding}
+              filteredData={filteredData} selectedBuilding={selectedBuilding} dataUpdate={dataUpdate}
+            />
+            <AddBuilding
+              filteredData={filteredData} dataUpdate={dataUpdate}
             />
           </div>
         </div>
