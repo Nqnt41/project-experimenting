@@ -62,6 +62,8 @@ function App({ data }) {
             <ViewBuilding
               filteredData={filteredData} selectedBuilding={selectedBuilding} dataUpdate={dataUpdate}
             />
+          </div>
+          <div className="column2">
             <AddBuilding
               filteredData={filteredData} dataUpdate={dataUpdate}
             />

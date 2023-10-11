@@ -28,7 +28,6 @@ function Search({ filterText, filterUpdate }) {
         onChange={handleChange}
         ref={input}
       />
-
     </form>
   );
 }
