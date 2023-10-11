@@ -18,8 +18,8 @@ function App({ data }) {
 
   // Set the state of the selected building to the id being passed in
   function selectedUpdate(id) {
-    setSelectedBuilding(id - 1)
-    console.log("App function id: " + (id - 1))
+    setSelectedBuilding(id)
+    console.log("App function id: " + (id))
   }
 
   // TODO: Placeholder below
@@ -27,6 +27,8 @@ function App({ data }) {
     console.log("sizes: " + filteredData.size + " " + changeData.size)
     setFilteredData(changeData)
   }
+
+  //console.log(filteredData.find(filteredData => filteredData.id === 1).code)
 
   return (
     <div className="bg">

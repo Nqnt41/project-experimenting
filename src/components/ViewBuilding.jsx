@@ -9,7 +9,7 @@ function ViewBuilding({ filteredData, selectedBuilding, dataUpdate }) {
         console.log("hi")
     }
 
-    if (selectedBuilding == -1) {
+    if (selectedBuilding === -1) {
       return (
           <div>
               <p>
@@ -20,17 +20,19 @@ function ViewBuilding({ filteredData, selectedBuilding, dataUpdate }) {
       );
     }
     else {
-      try {
+      const currentData = filteredData.find(filteredData => filteredData.id === selectedBuilding)
+        console.log(currentData)
+      //try {
           return (
               <div>
                   <p>
                       {' '}
                       <i>
                       Click on a name to view more information {<br/>}
-                      Code: {filteredData.at(selectedBuilding).code}{<br/>}
-                      Name: {filteredData.at(selectedBuilding).name}{<br/>}
-                      Address: {filteredData.at(selectedBuilding).address}{<br/>}
-                      Coordinates: {filteredData.at(selectedBuilding).coordinates.latitude}, {filteredData.at(selectedBuilding).coordinates.longitude}
+                      Code: {currentData?.code}{<br/>}
+                      Name: {currentData?.name}{<br/>}
+                      Address: {currentData?.address}{<br/>}
+                      Coordinates: ({currentData?.coordinates?.latitude}, {currentData?.coordinates?.longitude})
                       </i>
                   </p>
                   <button onClick={() => callRemove()}>
@@ -38,15 +40,15 @@ function ViewBuilding({ filteredData, selectedBuilding, dataUpdate }) {
                   </button>
               </div>
           );
-      }
-      catch (error) {
+      //}
+      /*catch (error) {
           return (
               <div>
                   <p>
                       {' '}
                       <i>Click on a name to view more information{<br/>}
-                      Code: {filteredData.at(selectedBuilding).code}{<br/>}
-                      Name: {filteredData.at(selectedBuilding).name}
+                      Code: {currentData.code}{<br/>}
+                      Name: {currentData.name}
                       </i>
                   </p>
                   <button onClick={() => callRemove()}>
@@ -54,8 +56,8 @@ function ViewBuilding({ filteredData, selectedBuilding, dataUpdate }) {
                   </button>
               </div>
           );
-      }
-  }
+      }*/
+    }
 }
 
 export default ViewBuilding;

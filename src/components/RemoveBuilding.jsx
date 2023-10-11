@@ -2,9 +2,8 @@
 import {useState} from "react";
 
 function RemoveBuilding({ filteredData, selectedBuilding, dataUpdate }) {
-    console.log("remove data: " + filteredData[0].id + " " + selectedBuilding)
-
-    dataUpdate(filteredData.filter(i => i.id !== (selectedBuilding + 1)))
+    //console.log("remove data: " + filteredData[0].id + " " + selectedBuilding)
+    dataUpdate(filteredData.filter(i => i.id !== (selectedBuilding))) // Since find makes view dependent on id, doesnt work anymore
 }
 
 export default RemoveBuilding;

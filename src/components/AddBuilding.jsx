@@ -22,22 +22,26 @@ import {useRef, useState} from "react";
 
 
 function AddBuilding({ filteredData, dataUpdate }) {
-    const [newData, setNewData] = useState(filteredData[0]);
+    //const [newData, setNewData] = useState(null);
     console.log("hi")
 
     function handleChange(newData) {
+        console.log(newData.code)
         dataUpdate([...filteredData, newData]);
     }
 
     function handleAdd() {
         console.log(input1.current.value + " " + input2.current.value + " " + input3.current.value + " " + input4.current.value + " " + input5.current.value)
-        setNewData({
+        const newData = {
+            id: filteredData.length + 1, //+1?
             code: input1.current.value,
             name: input2.current.value,
             address: input3.current.value,
-            latitude: input4.current.value,
-            longitude: input5.current.value
-        })
+            coordinates: {
+                latitude: input4.current.value,
+                longitude: input5.current.value
+            }
+        }
         handleChange(newData)
     }
 
