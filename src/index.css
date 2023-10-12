@@ -2,6 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
+	background: #fffbe9;
 }
 
 /* ##### general ##### */
@@ -69,7 +70,7 @@ td:hover {
 	float: left;
 	width: 49%;
 	padding: 20px;
-	background-color: #fff5b0;
+	background-color: #ffedb7;
 	margin: 15px;
 }
 
