@@ -6,7 +6,6 @@ import AddBuilding from './components/AddBuilding';
 import Credit from './components/Credit';
 
 function App({ data }) {
-  // TODO: Update the following two variables to use the useState() hook
   const [filterText, setFilterText] = useState('');
   const [selectedBuilding, setSelectedBuilding] = useState(-1);
   const [filteredData, setFilteredData] = useState(data);
@@ -19,23 +18,18 @@ function App({ data }) {
   // Set the state of the selected building to the id being passed in
   function selectedUpdate(id) {
     setSelectedBuilding(id)
-    console.log("App function id: " + (id))
   }
 
-  // TODO: Placeholder below
+  // Update entire data set when adding or removing data points
   function dataUpdate(changeData) {
-    console.log("sizes: " + filteredData.size + " " + changeData.size)
     setFilteredData(changeData)
   }
-
-  //console.log(filteredData.find(filteredData => filteredData.id === 1).code)
 
   return (
     <div className="bg">
       <div className="row">
         <h1>UF Directory App</h1>
       </div>
-      {/* TODO: Edit Search component to include necessary props */}
       <Search
         filterText={filterText} filterUpdate={filterUpdate}
       />
@@ -52,7 +46,6 @@ function App({ data }) {
                 </tr>
               </thead>
               <tbody>
-                {/* TODO: Edit BuildingList component to include necessary props */}
                 <BuildingList
                   filteredData={filteredData} filterText={filterText} selectedUpdate={selectedUpdate}
                 />
@@ -62,7 +55,7 @@ function App({ data }) {
           </div>
           <div className="column2">
             <ViewBuilding
-              filteredData={filteredData} selectedBuilding={selectedBuilding} dataUpdate={dataUpdate}
+              filteredData={filteredData} selectedBuilding={selectedBuilding} dataUpdate={dataUpdate} selectedUpdate={selectedUpdate}
             />
           </div>
           <div className="column2">

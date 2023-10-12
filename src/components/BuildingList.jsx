@@ -1,11 +1,10 @@
 function BuildingList( { filteredData, filterText, selectedUpdate } ) {
-  // TODO: Apply names filter on buildingList
-  //  BuildingList is map of all the data in the program, prints the directory map information
-  //  Need to specify what ends up in directory?
+  // Function to update the id for selectedBuilding variable
   function handleChange(id) {
       selectedUpdate(id)
   }
 
+  // Build search bar and its key features
   const buildingList = filteredData.map(directory => {
       if (directory.code.toLowerCase().includes(filterText.toLowerCase()) || directory.name.toLowerCase().includes(filterText.toLowerCase()) ) {
           return (

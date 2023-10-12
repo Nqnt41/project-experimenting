@@ -1,25 +1,21 @@
 import { useEffect, useRef } from "react";
 
 function Search({ filterText, filterUpdate }) {
-
-  // TODO: Update the input variable to use the useRef() hook
-  //  Uses it, now what?
+  // Get input using useRef()
   const input = useRef(null);
 
+  // Allow filter to function without needing to be clicked on.
   useEffect(() => {
       input.current.focus();
   }, []);
 
+  // Function to have function be filtered in the App.jsx file.
   function handleChange() {
-    // TODO: Update the value of the filter with the input from the textbox
       filterUpdate(input.current.value)
-    // Hint: You will need to use the "current" property of the input variable
   }
 
+  // Create filter bubble
   return (
-    // TODO: Add a ref attribute to the input tag
-    // TODO: Add an onChange attribute to the input tag
-    // <pre>State value: {filterText}</pre>
     <form>
       <input 
         type="text"
@@ -31,4 +27,5 @@ function Search({ filterText, filterUpdate }) {
     </form>
   );
 }
+
 export default Search;

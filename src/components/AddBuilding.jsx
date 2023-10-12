@@ -1,50 +1,30 @@
-// Include new building in map array?
-
-import {useRef, useState} from "react";
-
-/*function callAdd( {input1, input2, input3, input4, input5} ) {
-    try {
-        console.log(input1.current.value + " " + input2.current.value + " " + input3.current.value + " " + input4.current.value + " " + input5.current.value)
-    }
-    catch (error) {
-        console.log("oops")
-    }
-    // TODO: dataUpdate([...filteredData, newData]);
-}*/
-
-// TODO: Try and catch to allow for variations to be made without errors - with coords, w/o, addresses, etc.
-
-// TODO: Got stuff to do, save last issues for office hours:
-//  Make datapoint that doesnt have key conflict? Using filteredData[0] to get a singular point I can edit, but it has a set key.
-//  Also, in ViewBuilding using try and catch to check if values are undefined, has to be a better way. Need to be able to print out like coords w/o address.
-//  Could probably do it with trys and catches, but worth asking if theres an easier method.
-//  Oh also maybe try to commit and push to main branch if theres time. Had issues in past.
-
+import { useRef } from "react";
 
 function AddBuilding({ filteredData, dataUpdate }) {
-    //const [newData, setNewData] = useState(null);
-    console.log("hi")
-
+    // Function to update all data at the end of the function
     function handleChange(newData) {
-        console.log(newData.code)
         dataUpdate([...filteredData, newData]);
     }
 
+    // Creates new data point containing information gathered below. Also checks that code and name included first.
     function handleAdd() {
-        console.log(input1.current.value + " " + input2.current.value + " " + input3.current.value + " " + input4.current.value + " " + input5.current.value)
-        const newData = {
-            id: filteredData.length + 1, //+1?
-            code: input1.current.value,
-            name: input2.current.value,
-            address: input3.current.value,
-            coordinates: {
-                latitude: input4.current.value,
-                longitude: input5.current.value
+        if (input1.current.value !== "" && input2.current.value !== "") {
+            const newData = {
+                id: filteredData.length + 1, //+1?
+                code: input1.current.value,
+                name: input2.current.value,
+                address: input3.current.value,
+                coordinates: {
+                    latitude: input4.current.value,
+                    longitude: input5.current.value
+                }
             }
+            // Call handleChange to allow insertion of new data
+            handleChange(newData)
         }
-        handleChange(newData)
     }
 
+    // The five inputs used to track the code, name, address, and coordinates
     const input1 = useRef(null);
     const input2 = useRef(null);
     const input3 = useRef(null);
@@ -55,8 +35,8 @@ function AddBuilding({ filteredData, dataUpdate }) {
         <div>
             <p>
                 {' '}
-                Enter information to add:{<br/>}
-                Code (Required):{<br/>}
+                <i>Enter information to add:{<br/>}{<br/>}</i>
+                <b>Code (Required):{<br/>}</b>
             </p>
             <form>
                 <input
@@ -65,7 +45,7 @@ function AddBuilding({ filteredData, dataUpdate }) {
                     ref={input1}
                 />
             </form>
-            <p>Name (Required):{<br/>}</p>
+            <p><b>Name (Required):{<br/>}</b></p>
             <form>
                 <input
                     type="text2"
@@ -73,7 +53,7 @@ function AddBuilding({ filteredData, dataUpdate }) {
                     ref={input2}
                 />
             </form>
-            <p>Address:{<br/>}</p>
+            <p><b>Address:{<br/>}</b></p>
             <form>
                 <input
                     type="text2"
@@ -81,19 +61,19 @@ function AddBuilding({ filteredData, dataUpdate }) {
                     ref={input3}
                 />
             </form>
-            <p>Latitude:{<br/>}</p>
+            <p><b>Latitude:{<br/>}</b></p>
             <form>
                 <input
                     type="text2"
-                    placeholder="Type to Filter"
+                    placeholder="Latitude"
                     ref={input4}
                 />
             </form>
-            <p>Longitude:{<br/>}</p>
+            <p><b>Longitude:{<br/>}</b></p>
             <form>
                 <input
                     type="text2"
-                    placeholder="Type to Filter"
+                    placeholder="Longitude"
                     ref={input5}
                 />
             </form>
