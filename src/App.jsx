@@ -4,6 +4,7 @@ import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
 import AddBuilding from './components/AddBuilding';
 import Credit from './components/Credit';
+import Assessments from './projectTesting/Assessments';
 
 function App({ data }) {
   const [filterText, setFilterText] = useState('');
@@ -34,6 +35,27 @@ function App({ data }) {
         filterText={filterText} filterUpdate={filterUpdate}
       />
       <main>
+
+        <div className="testingProjectTop">
+          <p1 className="testingProjectText">
+            First Assignment?
+          </p1>
+        </div>
+        <div className="testingProjectMid">
+          <p1 className="testingProjectText">
+            Mid af
+          </p1>
+        </div>
+        <div className="testingProjectBot">
+          <p1 className="testingProjectText">
+            Bottom
+          </p1>
+        </div>
+
+        <Assessments
+            filteredData={filteredData} numTestEntries={5}
+        />
+
         <div className="row">
           <div className="column1">
             <div className="tableWrapper">
