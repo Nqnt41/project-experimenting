@@ -1,61 +1,38 @@
 import {useState} from 'react';
-import Search from './components/Search';
+/*import Search from './components/Search';
 import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
 import AddBuilding from './components/AddBuilding';
-import Credit from './components/Credit';
+import Credit from './components/Credit';*/
 import Assessments from './projectTesting/Assessments';
 
 function App({ data }) {
-  const [filterText, setFilterText] = useState('');
-  const [selectedBuilding, setSelectedBuilding] = useState(-1);
   const [filteredData, setFilteredData] = useState(data);
-
-  // Set the state of the filter text to the value being passed in
-  function filterUpdate(value) {
-    setFilterText(value)
-  }
-
-  // Set the state of the selected building to the id being passed in
-  function selectedUpdate(id) {
-    setSelectedBuilding(id)
-  }
-
-  // Update entire data set when adding or removing data points
-  function dataUpdate(changeData) {
-    setFilteredData(changeData)
-  }
 
   return (
     <div className="bg">
+      <div className="row">
+        <h1>Assignment Page</h1>
+      </div>
+      <main>
+        <Assessments
+            filteredData={filteredData} numTestEntries={1}
+        />
+      </main>
+    </div>
+  );
+}
+
+export default App;
+
+/*
+      <div className="bg">
       <div className="row">
         <h1>UF Directory App</h1>
       </div>
       <Search
         filterText={filterText} filterUpdate={filterUpdate}
       />
-      <main>
-
-        <div className="testingProjectTop">
-          <p1 className="testingProjectText">
-            First Assignment?
-          </p1>
-        </div>
-        <div className="testingProjectMid">
-          <p1 className="testingProjectText">
-            Mid af
-          </p1>
-        </div>
-        <div className="testingProjectBot">
-          <p1 className="testingProjectText">
-            Bottom
-          </p1>
-        </div>
-
-        <Assessments
-            filteredData={filteredData} numTestEntries={5}
-        />
-
         <div className="row">
           <div className="column1">
             <div className="tableWrapper">
@@ -87,9 +64,4 @@ function App({ data }) {
           </div>
         </div>
         <Credit />
-      </main>
-    </div>
-  );
-}
-
-export default App;
+ */
